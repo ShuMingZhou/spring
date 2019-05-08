@@ -1,0 +1,10 @@
+装饰者模式：cachingExceutord对Execctor进行包装
+建造模式：SqlSessionFactoryBuilder去创建SqlSessionFactory，
+工厂模式：SqlsessionFactory
+模板方法模式：BaseExecutor、SimpleExecutor
+动态代理：MapperProxy,log(eg：ConnectionLog、StatementLogger）
+委派模式：createCacheKey
+责任链模式：InterceptorChain
+适配器： sl4j
+策略模式：RoutingStatementHandler
+单例模式：Configuration
