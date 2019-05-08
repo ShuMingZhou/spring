@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!--<import resource="classpath:application-beans.xml"/>-->
+	<!--<import resource="classpath:application-common.xml"/>-->
+	<!--<import resource="classpath:application-db.xml" />-->
+	<!--<import resource="classpath:application-aop.xml" />-->
+
+	<!-- 扫描相关的类的基础包 -->
+	<context:component-scan base-package="com.rick.spring.orm"/>
+	<!-- 如果要自动扫描Annotation -->
+	<context:annotation-config />
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${db2019.mysql.jdbc.driverClassName}" />
+		<property name="url" value="${db2019.mysql.jdbc.url}" />
+		<property name="username" value="${db2019.mysql.jdbc.username}" />
+		<property name="password" value="${db2019.mysql.jdbc.password}" />
+	</bean>
+
+</beans>
